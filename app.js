@@ -5,5 +5,5 @@ const app = express();
 app.get('/', (req, res) => {
   res.json({ msg: 'testing of expressJs' });
 });
-
-app.listen(7272, () => console.log('running at port 7272.......'));
+const port = process.env.PORT || 7272;
+app.listen(port, () => console.log('running at port 7272.......'));
