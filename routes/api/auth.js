@@ -62,6 +62,7 @@ router.post('/login', (req, res) => {
   const password = req.body.password;
   User.findOne({ email })
     .then(user => {
+      console.log(user + 24);
       if (!user) {
         return res
           .status(404)
@@ -99,15 +100,5 @@ router.post('/login', (req, res) => {
     })
     .catch(err => console.log('error from login route' + err));
 });
-
-//testing
-router.get(
-  '/profile',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-    // console.log(req);
-    res.json(req.user);
-  }
-);
 
 module.exports = router;
