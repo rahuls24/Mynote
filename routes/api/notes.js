@@ -30,7 +30,7 @@ router.post(
   }
 );
 
-// @type => POST
+// @type => GET
 // @route => /api/notes/mynotes
 // @desc => router for showing notes of login user
 // @access => PRIVATE
@@ -49,6 +49,27 @@ router.get(
         res.json(note);
       })
       .catch(err => console.log('err in finding the user notes' + err));
+  }
+);
+
+// @type => GET
+// @route => /api/notes/mynotes:title
+// @desc => finding note by entering note title
+// @access => PRIVATE
+router.get(
+  '/mynotes/:title',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Note.find({ title: req.params.title })
+      .then(note => {
+        if (Object.keys(note).length === 0) {
+          return res
+            .status(404)
+            .json({ noteErr: 'no notes found for current user' });
+        }
+        res.json(note);
+      })
+      .catch(err => console.log('err from finding title by title name' + err));
   }
 );
 
