@@ -4,7 +4,7 @@
   "description": "backend for a note saver app",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rahul Kumar",
   "license": "ISC",
@@ -18,5 +18,8 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "validator": "^11.1.0"
+  },
+  "scripts": {
+    "start": "node app.js"
   }
 }
