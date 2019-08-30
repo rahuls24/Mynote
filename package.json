@@ -1,6 +1,9 @@
 {
   "name": "mynotebackend",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.16.2"
+  },
   "description": "backend for a note saver app",
   "main": "app.js",
   "scripts": {
