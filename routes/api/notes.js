@@ -73,4 +73,25 @@ router.get(
   }
 );
 
+// @type => DELATE
+// @route => /api/notes/mynotes/del
+// @desc => deleting selected note
+// @access => PRIVATE
+
+router.delete(
+  '/mynotes/del',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    console.log(req.body.id);
+    Note.findByIdAndDelete({ _id: req.body.id })
+      .then(note => {
+        if (note) {
+          return res.status(200).json({ msg: 'deleted successfully ' });
+        }
+        res.status(404).json({ userNotFound: 'user not found' });
+      })
+      .catch(err => console.log('err from del' + err));
+  }
+);
+
 module.exports = router;
