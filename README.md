@@ -1,7 +1,7 @@
 # Mynote
-backend for myNote app using nodejs
+Backend for myNote app using nodejs
 
-## key function
- 1. Adding Note
+## key functions
+ 1. Adding Notes
  2. Showing notes of login user
- 3. Searching Note by entering titel
+ 3. Searching a note by entering its title
